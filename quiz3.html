@@ -1,0 +1,189 @@
+<html>
+<head>
+<title>Which Alaska song are you?</title>
+<style>
+body {
+background-color: black;
+font-family: Impact, Charcoal, sans-serif;
+font-size: 35px;
+}
+
+.description{
+font-size: 20px
+
+}
+
+#main {
+width: 70%;
+border: 1px gray solid;
+margin: auto;
+padding: 10px;
+background-color: white;
+border-radius: 10px;
+font-size: 15px
+}
+
+#titlealaska {
+font-size: 25px;
+}
+
+#header {
+margin-top: 0;
+border: 2px solid black;
+padding: 5px;
+height: 250px;
+background: beige;
+background-image: url("crown.jpg");
+color: black;
+}
+
+}
+
+
+
+
+
+
+
+</style>
+</head>
+<body>
+<div id="main">
+<div id="header"><h1 id="titlealaska">Which Alaska song are you?</h1></div>
+<table>
+<form  id="form1" />
+
+<br><br>
+
+<p class="description">Alaska is a queen from RuPaul's Drag Race Season 5 & All Stars 2. Which song from her album are you? Take the quiz to find out.</p>
+
+<br><br><br><br>
+
+<p id="question2">How would you describe your style?</p>
+
+<img src="look1.jpg" width=20%><input type="radio" name="fishy"  value="makeup" />Rotted
+<input type="radio" name="fishy"  value="anus" />Punk
+<input type="radio" name="fishy"  value="hie" />Glamorous
+
+<br><br><br><br>
+
+<p id="question3">If you were a shot what would you be?</p>
+<img src="shot.jpg" width=20%>
+<input type="radio" name="activity"  value="hie" />Tequila
+<input type="radio" name="activity"  value="anus" />911
+<input type="radio"  name="activity" value="makeup" />Jager Bomb
+
+
+<br><br><br><br>
+
+
+<p id="question4">Favorite character/impersonation?</p>
+<img src="look5.jpg" width=20%>
+<input type="radio" name="genre" value="hie" />Lady Bunny
+<input type="radio" name="genre" value="makeup" />Lil Poundcake
+<input type="radio" name="genre" value="anus" />Mae West
+
+
+<br><br><br><br>
+
+
+<p id="question5">Favorite All Stars 2 look?</p>
+<img src="look7.png" width=30%>
+<input type="radio" name="look" value="hie" /> Pants
+<input type="radio" name="look" value="makeup" />Latex
+<input type="radio" name="look" value="anus" />2 in 1
+
+<br><br><br><br>
+
+<br />
+<input type="submit" value="Submit">
+
+</form>
+</table>
+<p id="answer"></p>
+<p id="answer2"></p>
+<p id="answer3"></p>
+<p id="answer4"></p>
+<p id="answer5"></p>
+
+</div>
+<script>
+ 
+    
+	document.getElementById("form1").onsubmit=function() {
+	   
+	  age = document.querySelector('input[name = "fishy"]:checked').value;
+	   
+	  
+	  activity = document.querySelector('input[name = "activity"]:checked').value;
+	   
+	  genre = document.querySelector('input[name = "genre"]:checked').value;
+	  
+	  look = document.querySelector('input[name = "look"]:checked').value;
+	    
+	  // initialize score variables 
+	  hie = 0;
+	  anus = 0;
+	  makeup = 0;
+	  
+	  //function to calculate score for each question
+	  function eachscore(x){
+	  if(x == "hie") { hie = hie + 1}
+	  if(x == "anus") { anus = anus + 1}
+	  if(x == "makeup") { makeup = makeup + 1}
+	  }
+	  // for the above function, you could also change the 1 to a variable so you could give more points for certain questions
+	  
+	  //call function for each question
+	  eachscore(window["fishy"]);
+	  eachscore(window["activity"]);
+	  eachscore(window["genre"]);
+	  eachscore(window["look"]);
+	  
+	  
+	  
+	  //document.getElementById("answer").innerHTML = hie;
+	  //document.getElementById("answer2").innerHTML = anus;
+	  //document.getElementById("answer3").innerHTML = makeup;
+	  
+	  all = [hie, anus, makeup];
+	  
+	//get the max score  in the array
+	maxscore = Math.max.apply(Math,all);
+	
+    //figure out which score is the max score by identifying its index number
+	for(i=0; i<all.length; i++) {
+	if(all[i]==maxscore) {
+	highest = i;
+	}
+	}
+	
+
+// object holding scores and feedback	
+scores = [{index:0, feedback: "<img src='hie.jpg' width=300> <br> You got Hieeee"},
+{index:1, feedback: "<img src='anus.jpg' width=300> <br> You got Anus"},
+{index:2, feedback: "<img src='money.jpg' width=300> <br> You got Gimme All Your Money"}];
+
+
+//loop to match index to score and reply with feedback
+for(i=0;i<scores.length; i++) {
+if(highest == scores[i].index) {
+document.getElementById("answer4").innerHTML = scores[i].feedback;
+}
+}
+
+	   
+
+
+		   
+	   return false; 
+	   }// end the submit function
+	
+
+</script>
+
+
+
+</body>
+</html>
+
